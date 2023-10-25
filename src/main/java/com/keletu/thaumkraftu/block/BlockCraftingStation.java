@@ -1,5 +1,3 @@
-// Decompiled with: CFR 0.152
-// Class Version: 8
 package com.keletu.thaumkraftu.block;
 
 import com.keletu.thaumkraftu.ThaumKraftu;
@@ -12,14 +10,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -68,5 +65,15 @@ public class BlockCraftingStation extends BlockContainer implements ITKStation {
 
     public TileEntity createNewTileEntity(World var1, int var2) {
         return new TileTKCraftingStation();
+    }
+
+    @Override
+    public void breakBlock(World world, BlockPos pos, IBlockState state) {
+        TileEntity tileEntity = world.getTileEntity(pos);
+        if (tileEntity != null && tileEntity instanceof TileTKCraftingStation) {
+            InventoryHelper.dropInventoryItems(world, pos, ((TileTKCraftingStation)tileEntity).inventoryCraft);
+        }
+        super.breakBlock(world, pos, state);
+        world.removeTileEntity(pos);
     }
 }
