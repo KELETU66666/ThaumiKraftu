@@ -70,7 +70,7 @@ public class BlockCraftingStation extends BlockContainer implements ITKStation {
     @Override
     public void breakBlock(World world, BlockPos pos, IBlockState state) {
         TileEntity tileEntity = world.getTileEntity(pos);
-        if (tileEntity != null && tileEntity instanceof TileTKCraftingStation) {
+        if (tileEntity instanceof TileTKCraftingStation) {
             InventoryHelper.dropInventoryItems(world, pos, ((TileTKCraftingStation)tileEntity).inventoryCraft);
         }
         super.breakBlock(world, pos, state);
