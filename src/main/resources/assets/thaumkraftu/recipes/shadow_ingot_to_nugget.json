@@ -1,0 +1,12 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "thaumkraftu:shadow_ingot"
+    }
+  ],
+  "result": {
+    "item": "thaumkraftu:shadow_nugget",
+    "count": 9
+  }
+}

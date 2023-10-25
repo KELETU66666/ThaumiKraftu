@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"item": "thaumkraftu:crafting_station",
+		"count": 1
+	},
+	"pattern": [
+		"CPJ",
+		"WWW"
+	],
+	"key": {
+		"W": {
+			"item": "thaumcraft:table_wood"
+		},
+		"C": {
+			"item": "thaumcraft:crystal_essence",
+			"nbt": "{Aspects: [{amount: 1, key: \"ordo\"}]}"
+		},
+		"P": {
+			"item": "thaumcraft:phial",
+			"data": 1,
+			"nbt": "{Aspects: [{amount: 10, key: \"ordo\"}]}"
+		},
+		"J": {
+			"type": "forge:ore_dict",
+			"ore": "paper"
+		}
+	}
+}

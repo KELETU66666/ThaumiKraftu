@@ -1,0 +1,277 @@
+{
+  "entries": [
+    {
+      "key": "ELECTRUM",
+      "name": "thaumkraftu.research.electrum.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:electrum_ingot"
+      ],
+      "parents": [
+        "INFUSION"
+      ],"meta":["ROUND","HIDDEN"],
+      "location": [
+        0,
+        0
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.electrum.text",
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1","OBSERVATION;INFUSION;1"
+          ],
+          "required_item":["minecraft:gold_ingot"]
+        },
+        {
+          "text": "thaumkraftu.research.electrum.complete.text",
+          "recipes":["thaumkraftu:electrum_ingot", "thaumkraftu:electrum_dagger"]
+        }
+      ]
+    },
+    {
+      "key": "TK_CRAFTING_STATION",
+      "name": "thaumkraftu.research.station.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:crafting_station"
+      ],
+      "parents": [
+        "ELECTRUM"
+      ],
+      "location": [
+        3,
+        0
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.station.text",
+          "required_knowledge": [
+            "THEORY;BASICS;2"
+          ],
+          "required_item":["minecraft:crafting_table", "thaumcraft:arcane_workbench"],
+          "required_craft":["thaumcraft:metal_alchemical", "thaumcraft:mechanism_complex"]
+        },
+        {
+          "text": "thaumkraftu.research.station.complete.text",
+          "recipes":["thaumkraftu:tk_crafting_station"]
+        }
+      ]
+    },
+    {
+      "key": "ELECTRUM_DAGGER",
+      "name": "thaumkraftu.research.dagger.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:electrum_dagger"
+      ],
+      "parents": [
+        "ELECTRUM"
+      ],
+      "location": [
+        1,
+        -2
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.dagger.complete.text",
+          "recipes":["thaumkraftu:electrum_dagger"]
+        }
+      ]
+    },
+    {
+      "key": "MOONSTONE",
+      "name": "thaumkraftu.research.moongemstone.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:moon_gemstone"
+      ],
+      "parents": [
+        "TK_CRAFTING_STATION"
+      ],
+      "location": [
+        4,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.moongemstone.text",
+          "required_knowledge": [
+            "OBSERVATION;BASICS;1", "OBSERVATION;ARTIFICE;1"
+          ],
+          "required_item":["minecraft:diamond"],
+          "required_research":["!scan.moon;thaumcraft:textures/items/celestial/moon1.png"]
+        },
+        {
+          "text": "thaumkraftu.research.moongemstone.complete.text",
+          "recipes":["thaumkraftu:moonstone"]
+        }
+      ]
+    },
+    {
+      "key": "MOONSTONE_GREATSWORD",
+      "name": "thaumkraftu.research.moonstone_sword.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:moonstone_sword"
+      ],
+      "parents": [
+        "MOONSTONE"
+      ],
+      "location": [
+        6,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.moonstone_sword.text",
+          "required_knowledge": [
+            "THEORY;BASICS;1", "OBSERVATION;ARTIFICE;1", "THEORY;ARTIFICE;1"
+          ],
+          "required_craft":["minecraft:diamond_sword"],
+          "required_research":["!Alumentum", "!Collapser"]
+        },
+        {
+          "text": "thaumkraftu.research.moonstone_sword.complete.text"
+        }
+      ]
+    },
+    {
+      "key": "RUNESTONE_GREATSWORD",
+      "name": "thaumkraftu.research.runesword.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:runic_greatsword"
+      ],
+      "parents": [
+        "MOONSTONE_GREATSWORD", "RUNICSHIELDING"
+      ],
+      "location": [
+        8,
+        -1
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.runesword.text",
+          "required_knowledge": [
+            "THEORY;ARTIFICE;2", "THEORY;INFUSION;2"
+          ]
+        },
+        {
+          "text": "thaumkraftu.research.runesword.complete.text",
+          "recipes":["thaumkraftu:runic_greatsword"]
+        }
+      ]
+    },
+    {
+      "key": "SHADOW_METAL",
+      "name": "thaumkraftu.research.shadow_metal.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:shadow_nugget"
+      ],
+      "parents": [
+        "~BASEELDRITCH"
+      ],"meta":["HIDDEN", "ROUND"],
+      "location": [
+        3,
+        3
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.shadow_metal.text",
+          "required_knowledge": [
+            "OBSERVATION;ELDRITCH;1","THEORY;ELDRITCH;1","THEORY;ALCHEMY;1"
+          ],
+          "required_item": [
+            "thaumcarft:ingot;1;1"
+          ],"warp" : "2"
+        },
+        {
+          "text": "thaumkraftu.research.shadow_metal.complete.text",
+          "recipes":["thaumkraftu:shadow_metal", "thaumkraftu:shadow_nugget", "thaumkraftu:shadow_ingot"]
+        }
+      ]
+    },
+    {
+      "key": "SHADOW_FORTRESS_ARMOR",
+      "name": "thaumkraftu.research.shadow_armor.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:shadow_fortress_helm", "thaumkraftu:shadow_fortress_chest", "thaumkraftu:shadow_fortress_legs"
+      ],
+      "parents": [
+        "SHADOW_METAL", "FORTRESSMASK", "MOONSTONE"
+      ],"meta":["HIDDEN"],
+      "location": [
+        5,
+        1
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.shadow_armor.text",
+          "required_knowledge": [
+            "THEORY;INFUSION;1","THEORY;ELDRITCH;2"
+          ],"warp" : "5"
+        },
+        {
+          "text": "thaumkraftu.research.shadow_armor.complete.text",
+          "recipes":["thaumkraftu:shadow_fortress_helm", "thaumkraftu:shadow_fortress_chest", "thaumkraftu:shadow_fortress_legs", "thaumkraftu:shadow_helm_goggles", "thaumkraftu:shadow_helm_warp", "thaumkraftu:shadow_helm_wither", "thaumkraftu:shadow_helm_lifesteal"]
+        }
+      ]
+    },
+    {
+      "key": "PECHY_GOLEMANCY",
+      "name": "thaumkraftu.research.pechy_golemancy.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:pech_skull_forage"
+      ],
+      "parents": [
+        "ELECTRUM_DAGGER", "!Pech", "MINDBIOTHAUMIC"
+      ],
+      "location": [
+        2,
+        -4
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.pechy_golemancy.text",
+          "required_knowledge": [
+            "THEORY;GOLEMANCY;1"
+          ],
+          "required_item":["thaumkraftu:pech_skull_forage"],
+          "warp": 1
+        },
+        {
+          "text": "thaumkraftu.research.pechy_golemancy.complete.text"
+        }
+      ]
+    },
+    {
+      "key": "GOLEMANCY_AMULET",
+      "name": "thaumkraftu.research.golem_amulet.title",
+      "category": "THAUMKRAFTU",
+      "icons": [
+        "thaumkraftu:golem_amulet"
+      ],
+      "parents": [
+        "ELECTRUM_DAGGER", "~TK_CRAFTING_STATION", "MINDBIOTHAUMIC"
+      ],
+      "location": [
+        0,
+        -4
+      ],
+      "stages": [
+        {
+          "text": "thaumkraftu.research.golem_amulet.complete.text",
+          "required_knowledge": [
+            "THEORY;GOLEMANCY;2"
+          ]
+        },
+        {
+          "text": "thaumkraftu.research.golem_amulet.complete.text"
+        }
+      ]
+    }
+  ]
+}

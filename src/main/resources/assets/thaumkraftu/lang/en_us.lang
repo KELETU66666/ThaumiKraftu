@@ -1,0 +1,33 @@
+tile.crafting_station.name=Thaumic Crafting Station
+tile.pech_skull_forage.name=Forage Pech Skull
+tile.pech_skull_stalker.name=Stalker Pech Skull
+tile.pech_skull_thaum.name=Thaumaturge Pech Skull
+
+tile.tk.crafting_station.name=Thaumic Crafting Station
+
+item.moon_gemstone.name=Moon Gemstone
+item.moonstone_sword.name=Moonstone Claymore
+item.electrum_ingot.name=Electrum Ingot
+item.electrum_dagger.name=Electrum Dagger
+item.runic_greatsword.name=Runic GreatSword
+item.shadow_ingot.name=Shadow Ingot
+item.shadow_nugget.name=Shadow Nugget
+item.eternal_sword.name=Eternal Greatsword
+item.tk_parchment.name=Parchment
+item.ancient_skull.name=Ancient Skull
+item.golem_amulet.name=Golem Amulet
+
+item.shadow_fortress_helm.name=Shadow Fortress Helmet
+item.shadow_fortress_chest.name=Shadow Fortress Chestplate
+item.shadow_fortress_legs.name=Shadow Fortress Leggings
+
+research.scan.moon.text=The moonlight seems to be pouring out its secrets to you.
+
+thaumkraftu.research.moongemstone.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:0:128:96:1</IMG>2
+thaumkraftu.research.moonstone_sword.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:128:0:128:96:1</IMG>2
+thaumkraftu.research.golem_amulet.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:96:128:96:1</IMG>2
+
+itemGroup.thaumkraftu.tab=Random Thaumaturgy
+
+
+

@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "thaumkraftu",
+    "name": "Random Thaumaturgy",
+    "description": "A thaumcraft 6 addon but kedition",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Keletu66666"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": [
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "rotation=0": { "model": "thaumkraftu:pech_skull_stalker" },
+    "rotation=2": { "model": "thaumkraftu:pech_skull_stalker", "y": 180 },
+    "rotation=3":  { "model": "thaumkraftu:pech_skull_stalker", "y": 270 },
+    "rotation=1":  { "model": "thaumkraftu:pech_skull_stalker", "y": 90 }
+  }
+}

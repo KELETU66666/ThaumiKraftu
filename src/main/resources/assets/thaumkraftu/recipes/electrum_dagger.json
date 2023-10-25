@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"result": {
+		"item": "thaumkraftu:electrum_dagger",
+		"count": 1
+	},
+	"pattern": [
+		"  E",
+		"EA ",
+		"SE "
+	],
+	"key": {
+		"S": {
+			"type": "forge:ore_dict",
+			"ore": "stickWood"
+		},
+		"E": {
+			"type": "forge:ore_dict",
+			"ore": "ingotInfusedGold"
+		},
+		"A": {
+			"type": "forge:ore_dict",
+			"ore": "gemAmber"
+		}
+	}
+}
