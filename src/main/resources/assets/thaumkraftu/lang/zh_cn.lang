@@ -21,4 +21,23 @@ item.shadow_fortress_helm.name=暗影要塞兜鍪
 item.shadow_fortress_chest.name=暗影要塞胸铠
 item.shadow_fortress_legs.name=暗影要塞腿铠
 
+thaumkraftu.research.electrum.title=注魔琥珀金锭
+thaumkraftu.research.dagger.title=琥珀金匕首
+thaumkraftu.research.station.title=合成站
+thaumkraftu.research.golem_amulet.title=保护傀儡
+thaumkraftu.research.pechy_golemancy.title=岩精傀儡学
+thaumkraftu.research.moongemstone.title=月光石
+thaumkraftu.research.moonstone_sword.title=月光大剑
+thaumkraftu.research.runesword.title=符文石剑
+thaumkraftu.research.shadow_metal.title=暗影金属
+thaumkraftu.research.shadow_armor.title=暗影要塞套装
+
+research.scan.moon.text=月光向你倾吐着秘密
+
+
+thaumkraftu.research.moongemstone.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:0:128:96:1</IMG>2
+thaumkraftu.research.moonstone_sword.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:128:0:128:96:1</IMG>2
+thaumkraftu.research.golem_amulet.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:96:128:96:1</IMG>2
+
 itemGroup.thaumkraftu.tab=随意神秘学
+tc.research_category.THAUMKRAFTU=杂七杂八

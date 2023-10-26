@@ -1,7 +1,7 @@
 tile.crafting_station.name=Thaumic Crafting Station
-tile.pech_skull_forage.name=Forage Pech Skull
-tile.pech_skull_stalker.name=Stalker Pech Skull
-tile.pech_skull_thaum.name=Thaumaturge Pech Skull
+tile.pech_skull_forage.name=Forage Pech Head
+tile.pech_skull_stalker.name=Stalker Pech Head
+tile.pech_skull_thaum.name=Mage Pech Head
 
 tile.tk.crafting_station.name=Thaumic Crafting Station
 
@@ -23,11 +23,30 @@ item.shadow_fortress_legs.name=Shadow Fortress Leggings
 
 research.scan.moon.text=The moonlight seems to be pouring out its secrets to you.
 
+thaumkraftu.research.electrum.title=Infused Gold
+thaumkraftu.research.dagger.title=Electrum Dagger
+thaumkraftu.research.station.title=Thaumic Crafting Station
+thaumkraftu.research.golem_amulet.title=Golem Amulet
+thaumkraftu.research.pechy_golemancy.title=Pechy Golemancy
+thaumkraftu.research.moongemstone.title=Moonlight
+thaumkraftu.research.moonstone_sword.title=Moonstone Greatsword
+thaumkraftu.research.runesword.title=Runic Greatsword
+thaumkraftu.research.shadow_metal.title=Shadow Metal
+thaumkraftu.research.shadow_armor.title=Shadow Fortress Armor
+
+golem.head.forage=Pech Forage Head
+golem.head.text.forage=Pech Forage Head (attack mobs drop gold nugget)
+golem.head.stalker=Pech Stalker Head
+golem.head.text.stalker=Pech Stalker Head (attack mobs apply weakness II effect)
+golem.head.thaumium=Pech Mage Head
+golem.head.text.thaumium=Pech Mage Head (kill mobs chance drop curios and some other vaults)
+
 thaumkraftu.research.moongemstone.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:0:128:96:1</IMG>2
 thaumkraftu.research.moonstone_sword.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:128:0:128:96:1</IMG>2
 thaumkraftu.research.golem_amulet.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:96:128:96:1</IMG>2
 
 itemGroup.thaumkraftu.tab=Random Thaumaturgy
+tc.research_category.THAUMKRAFTU=Randomized Things
 
 
 
