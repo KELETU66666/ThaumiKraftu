@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @JEIPlugin
 public class TKJEIPlugin implements IModPlugin {
 
-    public static final String EXTREME_CRAFTING = "tk.station";
+    public static final String TK_STATION = "tk.station";
 
     public static IJeiHelpers jeiHelpers;
 
@@ -34,11 +34,11 @@ public class TKJEIPlugin implements IModPlugin {
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
         setupDrawables(guiHelper);
 
-        registry.addRecipes(CraftingManager.REGISTRY.getKeys().stream().map(CraftingManager.REGISTRY::getObject).filter(iRecipe -> iRecipe instanceof IStationRecipe).map(iRecipe -> new StationRecipeWrapper((IStationRecipe) iRecipe)).collect(Collectors.toList()), EXTREME_CRAFTING);
-        registry.handleRecipes(StationShapedRecipe.class, StationRecipeWrapper::new, EXTREME_CRAFTING);
-        registry.addRecipeCatalyst(new ItemStack(KBlocks.crafting_station), EXTREME_CRAFTING);
-        registry.getRecipeTransferRegistry().addRecipeTransferHandler(ContainerTKCraftingStation.class, EXTREME_CRAFTING, 1, 1, 1, 1);
-        registry.addRecipeClickArea(GuiCraftingStation.class, 100, 40, 15, 13, EXTREME_CRAFTING);
+        registry.addRecipes(CraftingManager.REGISTRY.getKeys().stream().map(CraftingManager.REGISTRY::getObject).filter(iRecipe -> iRecipe instanceof IStationRecipe).map(iRecipe -> new StationRecipeWrapper((IStationRecipe) iRecipe)).collect(Collectors.toList()), TK_STATION);
+        registry.handleRecipes(StationShapedRecipe.class, StationRecipeWrapper::new, TK_STATION);
+        registry.addRecipeCatalyst(new ItemStack(KBlocks.crafting_station), TK_STATION);
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(ContainerTKCraftingStation.class, TK_STATION, 1, 1, 1, 1);
+        registry.addRecipeClickArea(GuiCraftingStation.class, 100, 40, 15, 13, TK_STATION);
     }
 
     private static void setupDrawables(IGuiHelper helper) {
