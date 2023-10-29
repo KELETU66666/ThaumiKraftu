@@ -17,7 +17,7 @@ import java.util.*;
 
 public class StationRecipes {
     public static List<RecipeContainer> List = new ArrayList<>();
-    private static IForgeRegistry<IExtremeRecipe> registry;
+    private static IForgeRegistry<IStationRecipe> registry;
 
     public static void addRecipe(RecipeContainer r, Object ob, Object... recipe) {
         ItemStack item = ob instanceof Item ? new ItemStack((Item)ob) : (ob instanceof Block ? new ItemStack((Block)ob) : (ItemStack)ob);
@@ -42,16 +42,16 @@ public class StationRecipes {
         }
     }
 
-    public static void registerRecipes(RegistryEvent.Register<IExtremeRecipe> event) {
+    public static void registerRecipes(RegistryEvent.Register<IStationRecipe> event) {
         List.clear();
         registry = event.getRegistry();
     }
 
-    public static IExtremeRecipe match(InventoryCrafting inv, World worldIn) {
-        for (IExtremeRecipe irecipe : registry.getValues()) {
+    public static IStationRecipe match(InventoryCrafting inv, World worldIn) {
+        for (IStationRecipe irecipe : registry.getValues()) {
             int j;
             int i;
-            IExtremeRecipe recipe;
+            IStationRecipe recipe;
             if (irecipe instanceof ExtremeShapedRecipe) {
                 recipe = irecipe;
                 for (i = 0; i <= 4 - recipe.getWidth(); ++i) {
@@ -138,7 +138,7 @@ public class StationRecipes {
 
         public void add(ItemStack output, Object[] params) {
             CraftingHelper.ShapedPrimer primer = CraftingHelper.parseShaped(params);
-            IExtremeRecipe r = new ExtremeShapedRecipe(output, primer).setRegistryName(output.getItem().getRegistryName() + "_" + output.getItemDamage());
+            IStationRecipe r = new ExtremeShapedRecipe(output, primer).setRegistryName(output.getItem().getRegistryName() + "_" + output.getItemDamage());
             if (r.getRecipeOutput() .isEmpty() || r.getRecipeOutput().isEmpty()) {
                 return;
             }

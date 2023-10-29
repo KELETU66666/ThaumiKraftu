@@ -41,12 +41,8 @@ golem.head.text.stalker=Pech Stalker Head (attack mobs apply weakness II effect)
 golem.head.thaumium=Pech Mage Head
 golem.head.text.thaumium=Pech Mage Head (kill mobs chance drop curios and some other vaults)
 
-thaumkraftu.research.moongemstone.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:0:128:96:1</IMG>2
-thaumkraftu.research.moonstone_sword.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:128:0:128:96:1</IMG>2
-thaumkraftu.research.golem_amulet.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:96:128:96:1</IMG>2
+#JEI
+crafting.tk_station=Thaumic Crafting Station
 
 itemGroup.thaumkraftu.tab=Random Thaumaturgy
 tc.research_category.THAUMKRAFTU=Randomized Things
-
-
-
