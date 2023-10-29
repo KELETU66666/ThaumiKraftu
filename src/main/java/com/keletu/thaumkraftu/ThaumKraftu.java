@@ -1,9 +1,6 @@
 package com.keletu.thaumkraftu;
 
-import com.keletu.thaumkraftu.init.KBlocks;
-import com.keletu.thaumkraftu.init.KItems;
-import com.keletu.thaumkraftu.init.KResearch;
-import com.keletu.thaumkraftu.init.TKGuiHandler;
+import com.keletu.thaumkraftu.init.*;
 import com.keletu.thaumkraftu.proxy.CommonProxy;
 import com.keletu.thaumkraftu.tile.TileTK;
 import net.minecraft.block.Block;
@@ -71,6 +68,7 @@ public class ThaumKraftu {
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
         TileTK.setUp();
+        KRecipes.TKStationRecipes();
         KResearch.registerResearch();
         NetworkRegistry.INSTANCE.registerGuiHandler(ThaumKraftu.instance, new TKGuiHandler());
     }

@@ -1,13 +1,13 @@
 package com.keletu.thaumkraftu.container;
 
-import com.keletu.thaumkraftu.recipe.StationRecipes;
+import com.keletu.thaumkraftu.init.KRecipes;
+import com.keletu.thaumkraftu.recipe.IStationRecipe;
 import com.keletu.thaumkraftu.tile.TileTKCraftingStation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.network.play.server.SPacketSetSlot;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -75,13 +75,12 @@ public class ContainerTKCraftingStation extends Container
     public void updateProgressBar(int par1, int par2) {
     }
 
-    public void onCraftMatrixChanged(IInventory par1IInventory) {
+    public void  onCraftMatrixChanged(IInventory par1IInventory) {
         if (!this.world.isRemote) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP)this.ip.player;
             ItemStack itemstack = ItemStack.EMPTY;
-            IRecipe irecipe = StationRecipes.match(this.tileEntity.inventoryCraft, this.world);
-            if (irecipe != null && (irecipe.isDynamic() || !this.world.getGameRules().getBoolean("doLimitedCrafting") || entityplayermp.getRecipeBook().isUnlocked(irecipe))) {
-                this.craftResult.setRecipeUsed(irecipe);
+            IStationRecipe irecipe = KRecipes.findMatchingArcaneRecipe(this.tileEntity.inventoryCraft, this.ip.player);
+            if (irecipe != null && (!this.world.getGameRules().getBoolean("doLimitedCrafting"))) {
                 itemstack = irecipe.getCraftingResult(this.tileEntity.inventoryCraft);
             }
             this.craftResult.setInventorySlotContents(0, itemstack);

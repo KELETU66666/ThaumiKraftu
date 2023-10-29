@@ -1,13 +1,11 @@
 package com.keletu.thaumkraftu.recipe;
-
-import com.keletu.thaumkraftu.ThaumKraftu;
+/*
 import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
@@ -19,7 +17,7 @@ import java.util.*;
 
 public class StationRecipes {
     public static List<RecipeContainer> List = new ArrayList<>();
-    private static IForgeRegistry<IRecipe> registry;
+    private static IForgeRegistry<IExtremeRecipe> registry;
 
     public static void addRecipe(RecipeContainer r, Object ob, Object... recipe) {
         ItemStack item = ob instanceof Item ? new ItemStack((Item)ob) : (ob instanceof Block ? new ItemStack((Block)ob) : (ItemStack)ob);
@@ -44,36 +42,36 @@ public class StationRecipes {
         }
     }
 
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+    public static void registerRecipes(RegistryEvent.Register<IExtremeRecipe> event) {
         List.clear();
         registry = event.getRegistry();
     }
 
-    public static IRecipe match(InventoryCrafting inv, World worldIn) {
-        for (IRecipe irecipe : registry.getValues()) {
+    public static IExtremeRecipe match(InventoryCrafting inv, World worldIn) {
+        for (IExtremeRecipe irecipe : registry.getValues()) {
             int j;
             int i;
-            Object recipe;
-            if (irecipe instanceof ShapedRecipes) {
+            IExtremeRecipe recipe;
+            if (irecipe instanceof ExtremeShapedRecipe) {
                 recipe = irecipe;
-                for (i = 0; i <= 4 - ((ShapedRecipes)recipe).recipeWidth; ++i) {
-                    for (j = 0; j <= 4 - ((ShapedRecipes)recipe).recipeHeight; ++j) {
-                        if (!StationRecipes.checkMatch((ShapedRecipes)recipe, inv, i, j, true) && !StationRecipes.checkMatch((ShapedRecipes)recipe, inv, i, j, false)) continue;
+                for (i = 0; i <= 4 - recipe.getWidth(); ++i) {
+                    for (j = 0; j <= 4 - recipe.getHeight(); ++j) {
+                        if (!StationRecipes.checkMatch((ExtremeShapedRecipe)recipe, inv, i, j, true) && !StationRecipes.checkMatch((ExtremeShapedRecipe)recipe, inv, i, j, false)) continue;
                         return irecipe;
                     }
                 }
                 continue;
             }
-            if (irecipe instanceof ShapedOreRecipe) {
-                recipe = irecipe;
-                for (i = 0; i <= 4 - ((ShapedOreRecipe)recipe).getWidth(); ++i) {
-                    for (j = 0; j <= 4 - ((ShapedOreRecipe)recipe).getHeight(); ++j) {
-                        if (!StationRecipes.checkMatch((ShapedOreRecipe)recipe, inv, i, j, true) && !StationRecipes.checkMatch((ShapedOreRecipe)recipe, inv, i, j, false)) continue;
-                        return irecipe;
-                    }
-                }
-                continue;
-            }
+            //if (irecipe instanceof ShapedOreRecipe) {
+            //    recipe = irecipe;
+            //    for (i = 0; i <= 4 - ((ShapedOreRecipe)recipe).getWidth(); ++i) {
+            //        for (j = 0; j <= 4 - ((ShapedOreRecipe)recipe).getHeight(); ++j) {
+            //            if (!StationRecipes.checkMatch((ShapedOreRecipe)recipe, inv, i, j, true) && !StationRecipes.checkMatch((ShapedOreRecipe)recipe, inv, i, j, false)) continue;
+            //            return irecipe;
+            //        }
+            //    }
+            //    continue;
+            //}
             if (!irecipe.matches(inv, worldIn)) continue;
             return irecipe;
         }
@@ -98,14 +96,14 @@ public class StationRecipes {
         return true;
     }
 
-    private static boolean checkMatch(ShapedRecipes recipe, InventoryCrafting inv, int startX, int startY, boolean mirror) {
+    private static boolean checkMatch(ExtremeShapedRecipe recipe, InventoryCrafting inv, int startX, int startY, boolean mirror) {
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 4; ++j) {
                 int k = i - startX;
                 int l = j - startY;
                 Ingredient ingredient = Ingredient.EMPTY;
-                if (k >= 0 && l >= 0 && k < recipe.recipeWidth && l < recipe.recipeHeight) {
-                    ingredient = mirror ? recipe.recipeItems.get(recipe.recipeWidth - k - 1 + l * recipe.recipeWidth) : recipe.recipeItems.get(k + l * recipe.recipeWidth);
+                if (k >= 0 && l >= 0 && k < recipe.width && l < recipe.height) {
+                    ingredient = mirror ? recipe.input.get(recipe.width - k - 1 + l * recipe.width) : recipe.input.get(k + l * recipe.width);
                 }
 
                 if (ingredient.apply(inv.getStackInRowAndColumn(i, j))) continue;
@@ -125,17 +123,30 @@ public class StationRecipes {
             List.add(this);
         }
 
+        public void addRecipe(ItemStack result, Object...objects) {
+            Object[] list = new Object[objects.length + 1];
+            list[0] = false;
+            System.arraycopy(objects, 0, list, 1, objects.length);
+
+            CraftingHelper.ShapedPrimer primer = CraftingHelper.parseShaped(list);
+            primer.mirrored = false;
+
+            ExtremeShapedRecipe recipe = new ExtremeShapedRecipe(result, primer);
+            ResourceLocation key = result.getItem().getRegistryName();
+            registry.register(recipe.setRegistryName(key));
+        }
+
         public void add(ItemStack output, Object[] params) {
             CraftingHelper.ShapedPrimer primer = CraftingHelper.parseShaped(params);
-            IRecipe r = new ShapedRecipes(ThaumKraftu.MOD_ID, primer.width, primer.height, primer.input, output).setRegistryName(output.getItem().getRegistryName() + "_" + output.getItemDamage());
+            IExtremeRecipe r = new ExtremeShapedRecipe(output, primer).setRegistryName(output.getItem().getRegistryName() + "_" + output.getItemDamage());
             if (r.getRecipeOutput() .isEmpty() || r.getRecipeOutput().isEmpty()) {
                 return;
             }
             ArrayList<ItemStack> input = new ArrayList<>();
-            ShapedRecipes recipe = (ShapedRecipes) r;
-            this.width = recipe.recipeWidth;
-            this.height = recipe.recipeHeight;
-            for (Ingredient in : recipe.recipeItems) {
+            ExtremeShapedRecipe recipe = (ExtremeShapedRecipe) r;
+            this.width = recipe.getWidth();
+            this.height = recipe.getHeight();
+            for (Ingredient in : recipe.getIngredients()) {
                 if (in == Ingredient.EMPTY) {
                     input.add(ItemStack.EMPTY);
                     continue;
@@ -181,3 +192,4 @@ public class StationRecipes {
         }
     }
 }
+*/
