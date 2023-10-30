@@ -23,6 +23,9 @@ item.shadow_fortress_legs.name=Shadow Fortress Leggings
 
 research.scan.moon.text=The moonlight seems to be pouring out its secrets to you.
 
+entity.Villager.wizard=Thaumaturger
+entity.Villager.banker=Banker
+
 thaumkraftu.research.electrum.title=Infused Gold
 thaumkraftu.research.dagger.title=Electrum Dagger
 thaumkraftu.research.station.title=Thaumic Crafting Station

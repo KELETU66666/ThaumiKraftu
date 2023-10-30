@@ -3,6 +3,10 @@ package com.keletu.thaumkraftu;
 import com.keletu.thaumkraftu.init.*;
 import com.keletu.thaumkraftu.proxy.CommonProxy;
 import com.keletu.thaumkraftu.tile.TileTK;
+import com.keletu.thaumkraftu.village.ComponentBankerHome;
+import com.keletu.thaumkraftu.village.ComponentWizardTower;
+import com.keletu.thaumkraftu.village.VillageBankerManager;
+import com.keletu.thaumkraftu.village.VillageWizardManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -10,6 +14,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.structure.MapGenStructureIO;
+import net.minecraft.world.gen.structure.StructureMineshaftPieces;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +25,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
@@ -70,6 +78,15 @@ public class ThaumKraftu {
         TileTK.setUp();
         KRecipes.TKStationRecipes();
         KResearch.registerResearch();
+
+        VillageWizardManager.registerUselessVillager();
+        VillagerRegistry.instance().registerVillageCreationHandler(new VillageWizardManager());
+        MapGenStructureIO.registerStructureComponent(ComponentWizardTower.class, "TKWizTower");
+
+        VillageBankerManager.registerUselessVillager();
+        VillagerRegistry.instance().registerVillageCreationHandler(new VillageBankerManager());
+        MapGenStructureIO.registerStructureComponent(ComponentBankerHome.class, "Bank");
+
         NetworkRegistry.INSTANCE.registerGuiHandler(ThaumKraftu.instance, new TKGuiHandler());
     }
 
