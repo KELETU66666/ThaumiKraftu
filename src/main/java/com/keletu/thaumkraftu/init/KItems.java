@@ -28,6 +28,7 @@ public class KItems {
     public static Item parchment;
     public static Item ancient_skull;
     public static Item golem_amulet;
+    public static Item mana_bean;
 
     public static ItemArmor.ArmorMaterial SHADOW_FORTRESS = EnumHelper.addArmorMaterial("SHADOW_FORTRESS", "shadow", 300, new int[]{0, 6, 10, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 4F);
     public static void preInit() {
@@ -45,6 +46,7 @@ public class KItems {
         parchment = new Item().setTranslationKey("tk_parchment").setCreativeTab(ThaumKraftu.tab);
         ancient_skull = new Item().setTranslationKey("ancient_skull").setCreativeTab(ThaumKraftu.tab);
         golem_amulet = new ItemGolemAmulet().setTranslationKey("golem_amulet").setCreativeTab(ThaumKraftu.tab);
+        mana_bean = new ItemManaBean().setTranslationKey("mana_bean").setCreativeTab(ThaumKraftu.tab);
        }
 
     public static void registerItem() {
@@ -62,6 +64,7 @@ public class KItems {
         registerItem(parchment, parchment.getTranslationKey().substring(5));
         registerItem(ancient_skull, ancient_skull.getTranslationKey().substring(5));
         registerItem(golem_amulet, golem_amulet.getTranslationKey().substring(5));
+        registerItem(mana_bean, mana_bean.getTranslationKey().substring(5));
     }
 
     public static void registerItem(Item item, String name)
@@ -92,6 +95,7 @@ public class KItems {
         renderItems(parchment);
         renderItems(ancient_skull);
         renderItems(golem_amulet);
+        renderItems(mana_bean);
     }
 
     public static void renderItems(Item i){

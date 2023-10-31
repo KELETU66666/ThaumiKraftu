@@ -2,9 +2,11 @@ package com.keletu.thaumkraftu.proxy;
 
 import com.keletu.thaumkraftu.client.render.BlockCraftingStationRenderer;
 import com.keletu.thaumkraftu.client.render.RenderEnergyBall;
+import com.keletu.thaumkraftu.client.render.TileManaPodRenderer;
 import com.keletu.thaumkraftu.entity.EntityEnergyBall;
 import com.keletu.thaumkraftu.init.KBlocks;
 import com.keletu.thaumkraftu.init.KItems;
+import com.keletu.thaumkraftu.tile.TileManaPod;
 import com.keletu.thaumkraftu.tile.TileTKCraftingStation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.ForgeHooksClient;
@@ -42,6 +44,7 @@ public class ClientProxy extends CommonProxy {
     public static void registerTileEntities()
     {
         ClientRegistry.bindTileEntitySpecialRenderer(TileTKCraftingStation.class, new BlockCraftingStationRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileManaPod.class, new TileManaPodRenderer());
 
         ForgeHooksClient.registerTESRItemStack(Item.getItemFromBlock(KBlocks.crafting_station), 0, TileTKCraftingStation.class);
     }

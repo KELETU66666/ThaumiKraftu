@@ -1,5 +1,6 @@
 package com.keletu.thaumkraftu.village;
 
+import com.keletu.thaumkraftu.init.KItems;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
@@ -68,7 +69,7 @@ public class VillageWizardManager implements VillagerRegistry.IVillageCreationHa
                 recipeList.add(new MerchantRecipe(new ItemStack(Items.BOOK, 4 + random.nextInt(3), 0), new ItemStack(ItemsTC.curio, 1, 2)));
                 recipeList.add(new MerchantRecipe(new ItemStack(ItemsTC.chunks, 24 + random.nextInt(8), 0), new ItemStack(Items.EMERALD)));
                 //recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD), new ItemStack(ConfigItems.itemShard, 2 + random.nextInt(2), random.nextInt(6))));
-                //recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD), new ItemStack(ConfigItems.itemManaBean, 1 + random.nextInt(2), 0)));
+                recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD), new ItemStack(KItems.mana_bean, 1 + random.nextInt(2), 0)));
                 recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD, 5 + random.nextInt(3)), new ItemStack(ItemsTC.bathSalts, 1, 0)));
                 recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD, 5 + random.nextInt(3)), new ItemStack(ItemsTC.baubles, 1, 3)));
                 recipeList.add(new MerchantRecipe(new ItemStack(Items.EMERALD, 5 + random.nextInt(3)), new ItemStack(ItemsTC.amuletVis, 1, 0)));

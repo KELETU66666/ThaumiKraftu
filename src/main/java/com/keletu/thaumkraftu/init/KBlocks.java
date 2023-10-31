@@ -3,6 +3,7 @@ package com.keletu.thaumkraftu.init;
 import com.google.common.base.Strings;
 import com.keletu.thaumkraftu.ThaumKraftu;
 import com.keletu.thaumkraftu.block.BlockCraftingStation;
+import com.keletu.thaumkraftu.block.BlockManaPod;
 import com.keletu.thaumkraftu.block.BlockPechhead;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -16,12 +17,14 @@ public class KBlocks {
     public static Block pechHead_normal;
     public static Block pechHead_hunter;
     public static Block pechHead_thaumaturge;
+    public static Block mana_pod;
 
     public static void preInit() {
         crafting_station = new BlockCraftingStation().setTranslationKey("crafting_station").setCreativeTab(ThaumKraftu.tab);
         pechHead_normal = new BlockPechhead().setTranslationKey("pech_skull_forage").setCreativeTab(ThaumKraftu.tab);
         pechHead_hunter = new BlockPechhead().setTranslationKey("pech_skull_stalker").setCreativeTab(ThaumKraftu.tab);
         pechHead_thaumaturge = new BlockPechhead().setTranslationKey("pech_skull_thaum").setCreativeTab(ThaumKraftu.tab);
+        mana_pod = new BlockManaPod().setTranslationKey("mana_pod").setCreativeTab(ThaumKraftu.tab);
     }
 
     public static void registerBlocks() {
@@ -29,6 +32,7 @@ public class KBlocks {
         KBlocks.registerBlock(pechHead_normal, pechHead_normal.getTranslationKey().substring(5));
         KBlocks.registerBlock(pechHead_hunter, pechHead_hunter.getTranslationKey().substring(5));
         KBlocks.registerBlock(pechHead_thaumaturge, pechHead_thaumaturge.getTranslationKey().substring(5));
+        KBlocks.registerBlock(mana_pod, mana_pod.getTranslationKey().substring(5));
     }
 
     public static Block registerBlock(Block block) {
@@ -49,6 +53,7 @@ public class KBlocks {
         registerRender(pechHead_normal);
         registerRender(pechHead_hunter);
         registerRender(pechHead_thaumaturge);
+        registerRender(mana_pod);
     }
 
     public static void registerRender(Block block) {
