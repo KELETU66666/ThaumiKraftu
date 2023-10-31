@@ -2,6 +2,7 @@ tile.crafting_station.name=Thaumic Crafting Station
 tile.pech_skull_forage.name=Forage Pech Head
 tile.pech_skull_stalker.name=Stalker Pech Head
 tile.pech_skull_thaum.name=Mage Pech Head
+tile.mana_pod.name=Mana Pod
 
 tile.tk.crafting_station.name=Thaumic Crafting Station
 
@@ -16,6 +17,7 @@ item.eternal_sword.name=Eternal Greatsword
 item.tk_parchment.name=Parchment
 item.ancient_skull.name=Ancient Skull
 item.golem_amulet.name=Golem Amulet
+item.mana_bean.name=Mana Bean
 
 item.shadow_fortress_helm.name=Shadow Fortress Helmet
 item.shadow_fortress_chest.name=Shadow Fortress Chestplate

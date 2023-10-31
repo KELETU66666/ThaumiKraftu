@@ -1,8 +1,8 @@
 package com.keletu.thaumkraftu.init;
 
 import com.keletu.thaumkraftu.ThaumKraftu;
-import com.keletu.thaumkraftu.recipe.StationShapedRecipe;
 import com.keletu.thaumkraftu.recipe.IStationRecipe;
+import com.keletu.thaumkraftu.recipe.StationShapedRecipe;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

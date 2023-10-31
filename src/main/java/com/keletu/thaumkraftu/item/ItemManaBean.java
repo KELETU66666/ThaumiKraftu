@@ -1,16 +1,15 @@
 package com.keletu.thaumkraftu.item;
 
+import com.keletu.thaumkraftu.ConfigsTK;
 import com.keletu.thaumkraftu.ThaumKraftu;
 import com.keletu.thaumkraftu.init.KBlocks;
 import com.keletu.thaumkraftu.tile.TileManaPod;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -31,10 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IEssentiaContainerItem;
-import thaumcraft.api.blocks.BlocksTC;
 
-import javax.annotation.Nullable;
-import java.util.List;
 import java.util.Random;
 
 public class ItemManaBean extends ItemFood implements IEssentiaContainerItem {
@@ -77,16 +73,15 @@ public class ItemManaBean extends ItemFood implements IEssentiaContainerItem {
       items.add(new ItemStack(this, 1, 0));
   }
   
-  public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-    AspectList aspects = getAspects(stack);
-    if (aspects != null && aspects.size() > 0)
-      for (Aspect tag : aspects.getAspects()) {
-        tooltip.add(tag.getName() + " x" + aspects.getAmount(tag));
-      }  
-    super.addInformation(stack, worldIn, tooltip, flagIn);
-  }
+  //public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+  //  AspectList aspects = getAspects(stack);
+  //  if (aspects != null && aspects.size() > 0)
+  //    for (Aspect tag : aspects.getAspects()) {
+  //      tooltip.add(tag.getName() + " x" + aspects.getAmount(tag));
+  //    }
+  //  super.addInformation(stack, worldIn, tooltip, flagIn);
+  //}
 
-  //TODO
   @SideOnly(Side.CLIENT)
   public int getColor(ItemStack stack, int par2) {
     if (getAspects(stack) != null)
@@ -97,14 +92,14 @@ public class ItemManaBean extends ItemFood implements IEssentiaContainerItem {
   
   public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
     if (!par2World.isRemote && !par1ItemStack.hasTagCompound())
-      setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], 1)); 
+      setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], ConfigsTK.podAspect));
     super.onUpdate(par1ItemStack, par2World, par3Entity, par4, par5);
   }
 
   @Override
   public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
     if (!par1ItemStack.hasTagCompound())
-      setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], 1)); 
+      setAspects(par1ItemStack, (new AspectList()).add(displayAspects[this.rand.nextInt(displayAspects.length)], ConfigsTK.podAspect));
   }
   
   public AspectList getAspects(ItemStack itemstack) {
@@ -138,7 +133,7 @@ public class ItemManaBean extends ItemFood implements IEssentiaContainerItem {
     if (!magicBiome)
       return EnumActionResult.FAIL;
     Block i1 = world.getBlockState(pos).getBlock();
-    if (i1 == Blocks.LOG || i1 == Blocks.LOG2 || i1 == BlocksTC.logGreatwood) {
+    if (i1 instanceof BlockLog) {
       BlockPos pos1 = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
       if (world.isAirBlock(pos1)) {
         IBlockState k1 = KBlocks.mana_pod.getStateForPlacement(world, pos1, facing, hitX, hitY, hitZ, 0, player);

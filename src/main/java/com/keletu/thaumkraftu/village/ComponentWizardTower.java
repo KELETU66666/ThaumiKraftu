@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureVillagePieces;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 import java.util.List;

@@ -32,7 +32,7 @@ public class KBlocks {
         KBlocks.registerBlock(pechHead_normal, pechHead_normal.getTranslationKey().substring(5));
         KBlocks.registerBlock(pechHead_hunter, pechHead_hunter.getTranslationKey().substring(5));
         KBlocks.registerBlock(pechHead_thaumaturge, pechHead_thaumaturge.getTranslationKey().substring(5));
-        KBlocks.registerBlock(mana_pod, mana_pod.getTranslationKey().substring(5));
+        KBlocks.registerBlockWithoutItem(mana_pod, mana_pod.getTranslationKey().substring(5));
     }
 
     public static Block registerBlock(Block block) {
@@ -40,12 +40,22 @@ public class KBlocks {
         ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
         return block;
     }
-
+    public static Block registerBlockWithoutItem(Block block) {
+        ForgeRegistries.BLOCKS.register(block);
+        return block;
+    }
     public static Block registerBlock(Block block, String name) {
         if (block.getRegistryName() == null && Strings.isNullOrEmpty(name))
             throw new IllegalArgumentException("Attempted to register a Block with no name: " + block);
 
         return registerBlock(block.getRegistryName() != null ? block : block.setRegistryName(name));
+    }
+
+    public static Block registerBlockWithoutItem(Block block, String name) {
+        if (block.getRegistryName() == null && Strings.isNullOrEmpty(name))
+            throw new IllegalArgumentException("Attempted to register a Block with no name: " + block);
+
+        return registerBlockWithoutItem(block.getRegistryName() != null ? block : block.setRegistryName(name));
     }
 
     public static void Render(){

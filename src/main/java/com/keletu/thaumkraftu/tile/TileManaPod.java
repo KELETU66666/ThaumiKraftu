@@ -1,10 +1,7 @@
 package com.keletu.thaumkraftu.tile;
 
-import java.util.ArrayList;
-
 import com.keletu.thaumkraftu.block.BlockManaPod;
 import com.keletu.thaumkraftu.init.KBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -15,6 +12,8 @@ import thaumcraft.api.aspects.IAspectContainer;
 import thaumcraft.common.lib.research.ResearchManager;
 import thaumcraft.common.tiles.TileThaumcraft;
 
+import java.util.ArrayList;
+
 public class TileManaPod extends TileThaumcraft implements IAspectContainer {
   public Aspect aspect = null;
 
@@ -23,20 +22,20 @@ public class TileManaPod extends TileThaumcraft implements IAspectContainer {
   public boolean canUpdate() {
     return false;
   }
-  
-  public void readFromNBT(NBTTagCompound nbttagcompound) {
-    this.aspect = Aspect.getAspect(nbttagcompound.getString("aspect"));
+
+  public void readSyncNBT(NBTTagCompound nbttagcompound) {
+    this.aspect = Aspect.getAspect(nbttagcompound.getString("Aspect"));
   }
   
-  public NBTTagCompound writeToNBT(NBTTagCompound nbttagcompound) {
+  public NBTTagCompound writeSyncNBT(NBTTagCompound nbttagcompound) {
     if (this.aspect != null)
-      nbttagcompound.setString("aspect", this.aspect.getTag());
+      nbttagcompound.setString("Aspect", this.aspect.getTag());
     return nbttagcompound;
   }
   
   public void checkGrowth() {
     int l = getBlockMetadata();
-    if (l < 6) {
+    if (l < 7) {
       l++;
       this.world.setBlockState(this.getPos(), block.withAge(l + 1), 3);
     } 

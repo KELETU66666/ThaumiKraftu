@@ -1,16 +1,15 @@
 package com.keletu.thaumkraftu.block;
 
+import com.keletu.thaumkraftu.ConfigsTK;
 import com.keletu.thaumkraftu.init.KItems;
 import com.keletu.thaumkraftu.item.ItemManaBean;
 import com.keletu.thaumkraftu.tile.TileManaPod;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCarrot;
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -26,16 +25,45 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.internal.WorldCoordinates;
-import thaumcraft.common.config.ConfigItems;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 public class BlockManaPod extends Block {
-  public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
+
+  public static float W1 = 0.0625F;
+
+  public static float W2 = 0.125F;
+
+  public static float W3 = 0.1875F;
+
+  public static float W4 = 0.25F;
+
+  public static float W5 = 0.3125F;
+
+  public static float W6 = 0.375F;
+
+  public static float W7 = 0.4375F;
+
+  public static float W8 = 0.5F;
+
+  public static float W9 = 0.5625F;
+
+  public static float W10 = 0.625F;
+
+  public static float W11 = 0.6875F;
+
+  public static float W12 = 0.75F;
+
+  public static float W13 = 0.8125F;
+
+  public static float W14 = 0.875F;
+
+  public static float W15 = 0.9375F;
+  
+  public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 8);
   protected BlockStateContainer createBlockState() {
     return new BlockStateContainer(this, AGE);
   }
@@ -81,51 +109,44 @@ public class BlockManaPod extends Block {
   public boolean isFullCube(IBlockState state) {
     return false;
   }
-  
+
   public boolean isOpaqueCube(IBlockState state) {
     return false;
   }
 
-  //public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-  //  getBoundingBox(p_149668_1_, p_149668_2_, p_149668_3_, p_149668_4_);
-  //  return super.getCollisionBoundingBox(blockState, worldIn, pos);
-  //}
-//
-  //public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-  //  int l = getMetaFromState(source.getBlockState(pos));
-  //  switch (l) {
-  //    case 0:
-  //      return new AxisAlignedBB(0.25F, BlockRenderer.W12, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //    case 1:
-  //      func_149676_a(0.25F, BlockRenderer.W10, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //    case 2:
-  //      func_149676_a(0.25F, BlockRenderer.W8, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //    case 3:
-  //      func_149676_a(0.25F, BlockRenderer.W6, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //    case 4:
-  //      func_149676_a(0.25F, BlockRenderer.W5, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //    case 5:
-  //      func_149676_a(0.25F, BlockRenderer.W4, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //    case 6:
-  //      func_149676_a(0.25F, BlockRenderer.W3, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //    case 7:
-  //      func_149676_a(0.25F, BlockRenderer.W2, 0.25F, 0.75F, 1.0F, 0.75F);
-  //      break;
-  //  }
-  //}
-  //
-  //@SideOnly(Side.CLIENT)
-  //public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
-  //  getBoundingBox(p_149633_1_, p_149633_2_, p_149633_3_, p_149633_4_);
-  //  return super.getSelectedBoundingBox(state, worldIn, pos);
-  //}
+  public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+    getBoundingBox(state, worldIn, pos);
+    return super.getCollisionBoundingBox(state, worldIn, pos);
+  }
+
+  public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+    int l = getMetaFromState(state);
+    switch (l) {
+      case 0:
+        return new AxisAlignedBB(0.25F, W12, 0.25F, 0.75F, 1.0F, 0.75F);
+      case 1:
+        return new AxisAlignedBB(0.25F, W10, 0.25F, 0.75F, 1.0F, 0.75F);
+      case 2:
+        return new AxisAlignedBB(0.25F, W8, 0.25F, 0.75F, 1.0F, 0.75F);
+      case 3:
+        return new AxisAlignedBB(0.25F, W6, 0.25F, 0.75F, 1.0F, 0.75F);
+      case 4:
+        return new AxisAlignedBB(0.25F, W5, 0.25F, 0.75F, 1.0F, 0.75F);
+      case 5:
+        return new AxisAlignedBB(0.25F, W4, 0.25F, 0.75F, 1.0F, 0.75F);
+      case 6:
+        return new AxisAlignedBB(0.25F, W3, 0.25F, 0.75F, 1.0F, 0.75F);
+      case 7:
+        return new AxisAlignedBB(0.25F, W2, 0.25F, 0.75F, 1.0F, 0.75F);
+    }
+    return new AxisAlignedBB(0.25F, W2, 0.25F, 0.75F, 1.0F, 0.75F);
+  }
+  
+  @SideOnly(Side.CLIENT)
+  public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
+    getBoundingBox(state, worldIn, pos);
+    return super.getSelectedBoundingBox(state, worldIn, pos);
+  }
 
   @Override
   public void updateTick(World par1World, BlockPos pos, IBlockState state, Random rand) {
@@ -134,7 +155,7 @@ public class BlockManaPod extends Block {
       par1World.setBlockToAir(pos);
     } else if (par1World.rand.nextInt(30) == 0) {
       TileEntity tile = par1World.getTileEntity(pos);
-      if (tile != null && tile instanceof TileManaPod)
+      if (tile instanceof TileManaPod)
         ((TileManaPod)tile).checkGrowth(); 
       st.remove(new WorldCoordinates(pos, par1World.provider.getDimension()));
     } 
@@ -146,7 +167,7 @@ public class BlockManaPod extends Block {
     if (biome != null)
       magicBiome = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
     Block i1 = par1World.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).getBlock();
-    return (magicBiome && (i1 == Blocks.LOG || i1 == Blocks.LOG2 || i1 == BlocksTC.logGreatwood));
+    return (magicBiome && i1 instanceof BlockLog);
   }
 
   public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side) {
@@ -155,7 +176,7 @@ public class BlockManaPod extends Block {
     if (biome != null)
       magicBiome = BiomeDictionary.hasType(biome, BiomeDictionary.Type.MAGICAL);
     Block i1 = world.getBlockState(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())).getBlock();
-    boolean b = (i1 == Blocks.LOG || i1 == Blocks.LOG2 || i1 == BlocksTC.logGreatwood);
+    boolean b = (i1 instanceof BlockLog);
     return (side.getIndex() == 0 && b && magicBiome);
   }
   
@@ -185,7 +206,7 @@ public class BlockManaPod extends Block {
     if (metadata < 2)
       return dropped; 
     byte b0 = 1;
-    if (metadata == 7 && ((World) world).rand.nextFloat() > 0.33F)
+    if (metadata >= 7 && ((World) world).rand.nextFloat() > 0.33F)
       b0 = 2; 
     Aspect aspect = Aspect.PLANT;
     if (st.containsKey(new WorldCoordinates(pos, ((World) world).provider.getDimension()))) {
@@ -197,7 +218,7 @@ public class BlockManaPod extends Block {
     } 
     for (int k1 = 0; k1 < b0; k1++) {
       ItemStack i = new ItemStack(KItems.mana_bean);
-      ((ItemManaBean)i.getItem()).setAspects(i, (new AspectList()).add(aspect, 1));
+      ((ItemManaBean)i.getItem()).setAspects(i, (new AspectList()).add(aspect, ConfigsTK.podAspect));
       dropped.add(i);
     } 
     st.remove(new WorldCoordinates(pos, ((World) world).provider.getDimension()));

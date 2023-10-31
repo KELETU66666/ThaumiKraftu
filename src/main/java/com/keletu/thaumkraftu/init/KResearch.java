@@ -1,6 +1,5 @@
 package com.keletu.thaumkraftu.init;
 
-import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.util.ResourceLocation;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.research.ResearchCategories;
