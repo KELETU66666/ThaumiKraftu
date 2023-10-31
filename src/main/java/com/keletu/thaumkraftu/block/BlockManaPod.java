@@ -88,17 +88,17 @@ public class BlockManaPod extends Block {
     super(Material.PLANTS);
     this.setDefaultState(this.blockState.getBaseState().withProperty(this.getAgeProperty(), 0));
     setTickRandomly(true);
-    this.blockHardness = 0.5F;
+    this.setHardness(0.5F);
   }
 
   protected PropertyInteger getAgeProperty() {
     return AGE;
   }
 
-  public float getBlockHardness(IBlockState blockState, World world, BlockPos pos) {
-    float md = (8 - getMetaFromState(blockState));
-    return super.getBlockHardness(blockState, world, pos) / md;
-  }
+  //public float getBlockHardness(IBlockState blockState, World world, BlockPos pos) {
+  //  float md = (8 - getMetaFromState(blockState));
+  //  return super.getBlockHardness(blockState, world, pos) / md;
+  //}
 
   @SideOnly(Side.CLIENT)
   public BlockRenderLayer getRenderLayer()
