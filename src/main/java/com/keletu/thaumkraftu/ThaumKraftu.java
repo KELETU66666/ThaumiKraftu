@@ -3,10 +3,7 @@ package com.keletu.thaumkraftu;
 import com.keletu.thaumkraftu.init.*;
 import com.keletu.thaumkraftu.proxy.CommonProxy;
 import com.keletu.thaumkraftu.tile.TileTK;
-import com.keletu.thaumkraftu.village.ComponentBankerHome;
-import com.keletu.thaumkraftu.village.ComponentWizardTower;
-import com.keletu.thaumkraftu.village.VillageBankerManager;
-import com.keletu.thaumkraftu.village.VillageWizardManager;
+import com.keletu.thaumkraftu.village.*;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -14,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -79,6 +77,7 @@ public class ThaumKraftu {
         VillageBankerManager.registerUselessVillager();
         VillagerRegistry.instance().registerVillageCreationHandler(new VillageBankerManager());
         MapGenStructureIO.registerStructureComponent(ComponentBankerHome.class, "Bank");
+        MinecraftForge.EVENT_BUS.register(new LootHandler());
 
         NetworkRegistry.INSTANCE.registerGuiHandler(ThaumKraftu.instance, new TKGuiHandler());
     }

@@ -55,9 +55,9 @@ public class TKEvents {
         infernalMobs.add("Enderman");
         infernalMobs.add("Skeleton");
         infernalMobs.add("Witch");
-        infernalMobs.add("Thaumcraft.EldritchCrab");
-        infernalMobs.add("Thaumcraft.Taintacle");
-        infernalMobs.add("Thaumcraft.InhabitedZombie");
+        infernalMobs.add("EldritchCrab");
+        infernalMobs.add("Taintacle");
+        infernalMobs.add("BrainyZombie");
     }
 
     @SubscribeEvent
@@ -200,14 +200,10 @@ public class TKEvents {
             }
             if (event.getEntity() instanceof EntityMob) {
                 EntityMob mob = (EntityMob)event.getEntity();
-                if(infernalMobs.contains(mob.getName()) && event.getWorld().rand.nextInt(20) == 1)
+                if(infernalMobs.contains(mob.getName()) && event.getWorld().rand.nextInt(100) <= ConfigsTK.championChance - 1)
                         makeChampion(mob, false);
             }
         }
-    }
-
-    private static boolean isDangerousLocation(World world, int x, int y, int z) {
-        return false;
     }
 
     public static void makeChampion(EntityMob entity, boolean persist) {
