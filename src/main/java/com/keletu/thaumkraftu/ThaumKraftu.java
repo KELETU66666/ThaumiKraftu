@@ -55,6 +55,7 @@ public class ThaumKraftu {
     public void preInit(FMLPreInitializationEvent event) {
         instance = this;
         proxy.preInit(event);
+        TKEvents.infernalMobList();
         KBlocks.preInit();
         KBlocks.registerBlocks();
         KItems.preInit();
