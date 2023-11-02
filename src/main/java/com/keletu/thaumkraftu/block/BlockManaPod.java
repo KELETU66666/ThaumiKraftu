@@ -6,6 +6,7 @@ import com.keletu.thaumkraftu.item.ItemManaBean;
 import com.keletu.thaumkraftu.tile.TileManaPod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -21,6 +22,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
@@ -31,7 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class BlockManaPod extends Block {
+public class BlockManaPod extends Block implements IGrowable {
 
   public static float W1 = 0.0625F;
 
@@ -94,11 +96,6 @@ public class BlockManaPod extends Block {
   protected PropertyInteger getAgeProperty() {
     return AGE;
   }
-
-  //public float getBlockHardness(IBlockState blockState, World world, BlockPos pos) {
-  //  float md = (8 - getMetaFromState(blockState));
-  //  return super.getBlockHardness(blockState, world, pos) / md;
-  //}
 
   @SideOnly(Side.CLIENT)
   public BlockRenderLayer getRenderLayer()
@@ -244,5 +241,20 @@ public class BlockManaPod extends Block {
   
   public TileEntity createTileEntity(World world, IBlockState state) {
     return new TileManaPod();
+  }
+
+  @Override
+  public boolean canGrow(World world, BlockPos blockPos, IBlockState iBlockState, boolean b) {
+    return iBlockState.getValue(AGE) < 8;
+  }
+
+  @Override
+  public boolean canUseBonemeal(World world, Random random, BlockPos blockPos, IBlockState iBlockState) {
+    return false;
+  }
+
+  @Override
+  public void grow(World world, Random random, BlockPos pos, IBlockState state) {
+    world.setBlockState(pos, state.withProperty(AGE, state.getValue(AGE) + 1), 8);
   }
 }

@@ -1,5 +1,6 @@
 package com.keletu.thaumkraftu;
 
+import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import com.keletu.thaumkraftu.init.KBlocks;
 import com.keletu.thaumkraftu.init.KItems;
@@ -55,9 +56,9 @@ public class TKEvents {
         infernalMobs.add("Enderman");
         infernalMobs.add("Skeleton");
         infernalMobs.add("Witch");
-        infernalMobs.add("EldritchCrab");
-        infernalMobs.add("Taintacle");
-        infernalMobs.add("BrainyZombie");
+        infernalMobs.add("Thaumcraft:EldritchCrab");
+        infernalMobs.add("Thaumcraft:Taintacle");
+        infernalMobs.add("Thaumcraft:BrainyZombie");
     }
 
     @SubscribeEvent
@@ -77,7 +78,7 @@ public class TKEvents {
                 event.setAmount(event.getAmount() * 3);
             }
 
-            if(BaublesApi.isBaubleEquipped(player, KItems.golem_amulet) == 0)
+            if(BaublesApi.isBaubleEquipped(player, KItems.golem_amulet) == BaubleType.CHARM.getValidSlots()[0])
             {
                 if(event.getEntityLiving() instanceof EntityThaumcraftGolem)
                     event.setCanceled(true);

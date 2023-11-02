@@ -14,7 +14,7 @@ public class ItemGolemAmulet extends Item implements IBauble {
 
     @Override
     public BaubleType getBaubleType(ItemStack itemStack) {
-        return BaubleType.AMULET;
+        return BaubleType.CHARM;
     }
 
     public void onWornTick(ItemStack itemstack, EntityLivingBase player) {

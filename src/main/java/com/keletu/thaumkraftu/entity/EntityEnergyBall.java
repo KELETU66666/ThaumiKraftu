@@ -98,7 +98,7 @@ public class EntityEnergyBall extends EntityThrowable
                 EntityLivingBase elb = (EntityLivingBase) e;
                 float initialDamage = 10;
 
-                elb.attackEntityFrom(DamageSource.causeIndirectMagicDamage(shooter, this), initialDamage);
+                elb.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, shooter), initialDamage);
                 if(this.world instanceof WorldServer)
                     ((WorldServer) world).spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, this.posX, this.posY + 0.5, this.posZ, 6, 0, 0, 0, 1D);
 
