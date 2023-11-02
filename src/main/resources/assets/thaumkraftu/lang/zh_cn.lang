@@ -1,10 +1,13 @@
+#TILE
 tile.crafting_station.name=合成站
 tile.pech_skull_forage.name=岩精强盗头颅
 tile.pech_skull_stalker.name=岩精猎手头颅
 tile.pech_skull_thaum.name=岩精法师头颅
+tile.mana_pod.name=魔豆荚
 
 tile.tk.crafting_station.name=合成站
 
+#ITEM
 item.moon_gemstone.name=月光石
 item.moonstone_sword.name=月光大剑
 item.electrum_ingot.name=琥珀金锭
@@ -16,11 +19,18 @@ item.eternal_sword.name=永恒双手剑
 item.tk_parchment.name=手稿
 item.ancient_skull.name=远古骷髅头
 item.golem_amulet.name=铁匠吊坠
+item.mana_bean.name=魔豆
 
 item.shadow_fortress_helm.name=暗影要塞兜鍪
 item.shadow_fortress_chest.name=暗影要塞胸铠
 item.shadow_fortress_legs.name=暗影要塞腿铠
 
+#ENTITY
+entity.Villager.wizard=村民神秘使
+entity.Villager.banker=银行掌柜
+
+#RESEARCH
+thaumkraftu.research.basicrandom.title=随意神秘学
 thaumkraftu.research.electrum.title=注魔琥珀金锭
 thaumkraftu.research.dagger.title=琥珀金匕首
 thaumkraftu.research.station.title=合成站
@@ -34,10 +44,24 @@ thaumkraftu.research.shadow_armor.title=暗影要塞套装
 
 research.scan.moon.text=月光向你倾吐着秘密
 
+thaumkraftu.research.basicrandom.text=炼金杂项的发现不过是炼金术的冰山一角，这种转化万物的秘术拥有无穷的潜力与随机性，而我恰恰聪明绝顶，能够驾驭这种力量，而它也给了我一些小小的启发。<BR>在循规蹈矩的道路以外，我还有着一些不那么“学术”的想法，或是灵光一现，或是脑子一抽。这些随意的灵感会集中记录到这一章节，以此证明我不是个天才，就是个疯子。<BR>如果你发现这里的东西杂乱无章毫无逻辑可言，保持镇定，你完全正确。
 
-thaumkraftu.research.moongemstone.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:0:128:96:1</IMG>2
-thaumkraftu.research.moonstone_sword.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:128:0:128:96:1</IMG>2
-thaumkraftu.research.golem_amulet.complete.text=<PAGE>1<BR><IMG>thaumkraftu:textures/models/research/research0.png:0:96:128:96:1</IMG>2
+thaumkraftu.research.electrum.text=看看是哪位幸运观众被抽中作为我的头号实验品呢？啊，黄金！我实在难以把视线从你那金光闪闪的外表上移开。我想想，炼金术肯定是起不到什么作用了，金子本身就是炼金术的终点之一嘛。鉴于它在附魔台中展现出的魔力亲和性，我认为在注魔台上它的表现也会不错，理论上它能吸收更多的源质，从而获得某些独特的性质。来吧，注魔祭坛，启动！
+thaumkraftu.research.electrum.complete.text=不错不错，金锭的可塑性没有令我失望。在吸收了万能材料——世界盐之后，原本闪烁的外表似乎褪去了颜色，变得略显暗淡。而它的性质也随之改变，由原来的柔软变为了坚硬而有韧性，我用一种失传已久的合金命名了它：琥珀金。我想一把武器是这种新材料的最好归宿，嗯，一把匕首怎么样？
+
+thaumkraftu.research.dagger.complete.text=这把琥珀金匕首挥动起来轻若无物，能够对敌人实施疾风骤雨般的打击，不过它的威力实在不敢恭维。琥珀金在被加工至刀刃薄厚时似乎会自发地钝化，让其边缘的锐度骤减，从而极大地降低杀伤力，这让它与其作为一把武器不如作为一柄护手。唉，这把匕首的凡间属性属实不尽人意，只能寄希望于它的奥术性质了。<BR>在测试了绝大多数要素之后，总算有了可喜的发现。琥珀金匕首似乎对§lTenebrae§0要素有着额外的吸引力，当持有者位于目标身后时，这把匕首会在刀刃处聚集一道阴影之锋，在发起进攻时给予目标致命一击，造成极大伤害。我要是有个刺客朋友就好了，肯定能卖个好价钱。<BR>在后续的要素亲和实验中，悬挂起来的匕首刀刃总是在§4Bestia§0与§6Desiderium§0要素之间来回摆动，甚至微微发烫。正当我冥思苦想之际，一道佝偻着背有硕大行囊的身影浮现在我脑海中。看来，这把匕首还觊觎着岩精一族的鲜血，妄图收获它们的贪婪。<BR>今夜，神秘使加入狩猎。
+
+thaumkraftu.research.station.text=魔导透镜、奥术工作台、坩埚炼金、注魔祭坛、傀儡工坊……回首望去还真是做了不少东西。不过要我说还是差了点什么，工作台还是太小了，寥寥几个格子怎么能够让我大展宏图？基于对多种制作新物品的方法的研究，我觉得扩展工作台的目标是可行的，也许还能同时兼具一点奥术注魔的威能。
+thaumkraftu.research.station.complete.text=唔……怎么说呢，成功倒是成功了，不过只成功了一多半。新的合成站由原来的3*3成功地扩展到了4*4，但新的格子中只有下方的三格是按照原有逻辑工作的，而放在右方多出的四个格子的物品并不能作为主要构件参与到合成中。既然如此，那正好可以将这四个格子作为源质、水晶、以及次要材料的供给库，以此来为主材料附加一些特性。<BR>不过它到底能用来合成什么呢？我是不是说过要把那柄匕首做成护手来着？<PAGE>WIP<DIV>合成站配方暂未兼容魔导手册，请使用JEI查看相关配方。
+
+thaumkraftu.research.moongemstone.text=材料……材料……俗话说“好钢用在刀刃上”，反过来说要造一把顶级武器也得用好材料才行。黄金已经用过了，该把注意力转移到更闪耀的东西——钻石上了。这枚自然界中闪耀的宝石已经在神秘学中大放异彩，其独特的晶格结构足以承载高等法术的释放，说明它的魔力容纳能力也是一等一的，接下来只要找到合适的魔力就行了。<BR>月亮和它那炽热的死对头不同，这轮皎洁的天体似乎与灵气场有着密不可分的联系，其阴晴圆缺会引发魔力潮汐的发生，这背后的力量着实令人着迷。我真该好好看看那上面有什么，总不能是只被囚禁一千年的小马吧？
+thaumkraftu.research.moongemstone.complete.text=不出所料，合成站在若干材料的辅助下成功地将月光凝聚在了钻石之中，我将这个散发着荧光的产物很没创意地叫做月光石。这颗月之结晶汇聚着巨大的能量，但是全都被困在复杂的晶格之中。万事俱备，只差一把能够释放这种能量的兵刃了。
+research.!scan.moon.text=举头望明月
+
+thaumkraftu.research.moonstone_sword.text=上回书说到，现在缺少一种将能量释放出来的方式，而我恰好在炼金爆破领域有所建树。无论是源动之焰受震动而引发的爆炸，还是悖论物质碰撞空间所产生的维度撕裂，都隐藏着能量释放的过程。如果我能捕捉到这两者爆破前的瞬间，也许就能掌握其中的奥妙。
+thaumkraftu.research.moonstone_sword.complete.text=千呼万唤始出来。月光大剑，以月光石为刃，琥珀金为柄。手持着这把传奇之剑，你能感受到其中流动的纯净月光之力。在琥珀金匕首蕴含的阴影之力的加持下，全力挥动这把武器将释放出迅疾的月光剑气，并在命中处引发一次爆破。<BR>就是不知道为什么，做出来这把武器之后我总有一种点燃别人家篝火的冲动。
+research.!Alumentum.text=研究某种危险的抛射物
+research.!Collapser.text=研究某种极端危险且不稳定的抛射物
 
 itemGroup.thaumkraftu.tab=随意神秘学
 tc.research_category.THAUMKRAFTU=杂七杂八
